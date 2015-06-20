@@ -1,11 +1,11 @@
-<?php
-
-namespace App\Http\Controllers\Auth;
-
+<?php namespace App\Http\Controllers\Auth;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+
 
 class AuthController extends Controller
 {
@@ -19,46 +19,63 @@ class AuthController extends Controller
     | a simple trait to add these behaviors. Why don't you explore it?
     |
     */
-
     use AuthenticatesAndRegistersUsers;
 
     /**
      * Create a new authentication controller instance.
-     *
+     * @param  \Illuminate\Contracts\Auth\Guard  $auth
      * @return void
      */
-    public function __construct()
+    public function __construct(Guard $auth)
     {
+        $this->auth = $auth;
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * Register disabled
+     * @return \Illuminate\Http\Response
      */
-    protected function validator(array $data)
+    public function getRegister()
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
-        ]);
+        return redirect('auth/login');die;
     }
 
     /**
-     * Create a new user instance after a valid registration.
+     * Handle a registration request for the application.
      *
-     * @param  array  $data
-     * @return User
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    protected function create(array $data)
+    public function postRegister(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        return redirect('auth/login');die;
+    }
+
+    /**
+     * Show Login Form
+     *
+     * @return Response
+     */
+    public function getLogin()
+    {
+        return view('mtcms.auth.login');
+    }
+
+    /**
+     * Handle a login request to the application.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function postLogin(Request $request)
+    {
+        $this->validate($request,['email' => 'required|email', 'password' => 'required']);
+        $request->offsetSet('status',1);
+        if ($this->auth->attempt($request->only('email', 'password','status'))){
+            return redirect('/dashboard');
+        }else{
+            return redirect('/auth/login')->withErrors(['email' => trans('app.email_or_password_incorrect')]);
+        }
     }
 }
