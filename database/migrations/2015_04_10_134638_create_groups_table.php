@@ -16,7 +16,6 @@ class CreateGroupsTable extends Migration {
         {
             $table->increments('id');
             $table->string('name')->nullable();
-            $table->string('value')->nullable();
             $table->tinyInteger('status')->default(0)->index();
             $table->timestamps();
         });

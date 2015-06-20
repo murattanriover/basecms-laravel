@@ -38,7 +38,7 @@
                 <table class="table table-striped table-bordered table-hover" id="datatable_ajax2">
                     <thead>
                     <tr role="row" class="heading">
-                        <th width="70%">{{trans('app.value')}}</th>
+                        <th width="70%">{{trans('app.title')}}</th>
                         <th width="30%">{{trans('app.action')}}</th>
                     </tr>
                     </thead>

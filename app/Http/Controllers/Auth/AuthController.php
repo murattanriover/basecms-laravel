@@ -59,7 +59,7 @@ class AuthController extends Controller
      */
     public function getLogin()
     {
-        return view('mtcms.auth.login');
+        return view('cms.auth.login');
     }
 
     /**

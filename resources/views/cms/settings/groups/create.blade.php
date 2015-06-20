@@ -40,11 +40,6 @@
                         <div class="col-md-10">{!! Form::text('name','',["class"=>"form-control",'placeholder'=>trans('app.title')]) !!}</div>
                     </div>
 
-                    <div class="form-group">
-                        {!! Form::label('value',trans('app.value'),["class"=>"control-label col-md-2"]) !!}
-                        <div class="col-md-10">{!! Form::text('value','',["class"=>"form-control",'placeholder'=>trans('app.value')]) !!}</div>
-                    </div>
-
                     <div class="form-groups">
                         <div class="row">
                             <div class="col-md-12">

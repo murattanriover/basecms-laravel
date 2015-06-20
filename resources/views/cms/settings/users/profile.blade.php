@@ -28,22 +28,22 @@
 
                 <div class="form-group">
                     {!! Form::label('name',trans('app.name'),["class"=>"control-label col-md-2"]) !!}
-                    <div class="col-md-10">{!! Form::text('name',null,["class"=>"form-control",'placeholder'=>trans('name')]) !!}</div>
+                    <div class="col-md-10">{!! Form::text('name',null,["class"=>"form-control",'placeholder'=>trans('app.name')]) !!}</div>
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('surname',trans('surname'),["class"=>"control-label col-md-2"]) !!}
-                    <div class="col-md-10">{!! Form::text('surname',null,["class"=>"form-control",'placeholder'=>trans('surname')]) !!}</div>
+                    {!! Form::label('surname',trans('app.surname'),["class"=>"control-label col-md-2"]) !!}
+                    <div class="col-md-10">{!! Form::text('surname',null,["class"=>"form-control",'placeholder'=>trans('app.surname')]) !!}</div>
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('password',trans('password'),["class"=>"control-label col-md-2"]) !!}
-                    <div class="col-md-10">{!! Form::password('password',["class"=>"form-control",'placeholder'=>trans('password')]) !!}</div>
+                    {!! Form::label('password',trans('app.password'),["class"=>"control-label col-md-2"]) !!}
+                    <div class="col-md-10">{!! Form::password('password',["class"=>"form-control",'placeholder'=>trans('app.password')]) !!}</div>
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('password_repeat',trans('password_repeat'),["class"=>"control-label col-md-2"]) !!}
-                    <div class="col-md-10">{!! Form::password('password_repeat',["class"=>"form-control",'placeholder'=>trans('password_repeat')]) !!}</div>
+                    {!! Form::label('password_repeat',trans('app.password_repeat'),["class"=>"control-label col-md-2"]) !!}
+                    <div class="col-md-10">{!! Form::password('password_repeat',["class"=>"form-control",'placeholder'=>trans('app.password_repeat')]) !!}</div>
                 </div>
 
                 <div class="form-groups">

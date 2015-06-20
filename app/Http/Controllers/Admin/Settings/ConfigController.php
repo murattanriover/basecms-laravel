@@ -17,7 +17,7 @@ class ConfigController extends Controller {
 	 */
 	public function index()
 	{
-		return view("mtcms.settings.config.index");
+		return view("cms.settings.config.index");
 	}
 
     public function getIndex(){
@@ -37,7 +37,7 @@ class ConfigController extends Controller {
 	 */
 	public function create()
 	{
-		return view("mtcms.settings.config.create");
+		return view("cms.settings.config.create");
 	}
 
 	/**
@@ -70,7 +70,7 @@ class ConfigController extends Controller {
 	public function edit($id)
 	{
         $config = Config::where('id','=',$id)->live()->firstOrFail();
-        return view("mtcms.settings.config.edit")->withConfig($config);
+        return view("cms.settings.config.edit")->withConfig($config);
 	}
 
 	/**

@@ -26,14 +26,14 @@ class UserController extends Controller {
 	 */
 	public function index()
 	{
-		return view("mtcms.settings.users.index");
+		return view("cms.settings.users.index");
 	}
 
     public function getIndex(){
         $users = User::select(['id','name','surname','email'])->live()->orderBy('id','DESC');
         return Datatables::of($users)
         ->add_column('groups',function($user){
-            return implode(', ',$user->Groups()->lists('value')->all());
+            return implode(', ',$user->Groups()->lists('name')->all());
         })
         ->add_column('actions',function($row){
             return permshtml('settings/users/'.$row->id.'/edit','<a href="'.url('settings/users/'.$row->id.'/edit').'" class="btn btn-xs btn-default">'.trans('app.edit').'</a>') . "   " . permshtml('settings/users/'.$row->id,'<a href="'.url('settings/users/'.$row->id).'" data-token="'.csrf_token().'" class="del-item btn btn-xs btn-danger">'.trans('app.delete').'</a>',"delete");
@@ -49,8 +49,8 @@ class UserController extends Controller {
 	 */
 	public function create()
 	{
-        $groups = Groups::live()->lists('value','id');
-		return view("mtcms.settings.users.create")->withGroups($groups);
+        $groups = Groups::live()->lists('name','id');
+		return view("cms.settings.users.create")->withGroups($groups);
 	}
 
 	/**
@@ -90,13 +90,13 @@ class UserController extends Controller {
 	public function edit($id)
 	{
         $user = User::where('id','=',$id)->live()->firstOrFail();
-        $groups = Groups::live()->lists('value','id')->all();
-        return view("mtcms.settings.users.edit")->withUser($user)->withGroups($groups);
+        $groups = Groups::live()->lists('name','id')->all();
+        return view("cms.settings.users.edit")->withUser($user)->withGroups($groups);
 	}
 
     public function getProfile(){
         $user = User::where('id','=',Auth::user()->id)->live()->firstOrFail();
-        return view("mtcms.settings.users.profile")->withUser($user);
+        return view("cms.settings.users.profile")->withUser($user);
     }
 
     public function postProfile(Request $request)

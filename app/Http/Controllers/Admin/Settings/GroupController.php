@@ -18,11 +18,11 @@ class GroupController extends Controller {
 	 */
 	public function index()
 	{
-		return view("mtcms.settings.groups.index");
+		return view("cms.settings.groups.index");
 	}
 
     public function getIndex(){
-        $groups = Groups::select(['id','value'])->live()->orderBy('id','DESC');
+        $groups = Groups::select(['id','name'])->live()->orderBy('id','DESC');
         return Datatables::of($groups)
         ->add_column('actions',function($row){
             return permslink('settings/groups/data/perms/'.$row->id.'/edit',trans('app.edit_perms'),['class'=>'btn btn-xs btn-warning']). "&nbsp;&nbsp;" .
@@ -42,7 +42,7 @@ class GroupController extends Controller {
             $currentPerms[$controllername."___".$actionname] = $p->id;
         }
         $ControllerFiles = (PermsLib::mapSystemClasses(null,true)); // true = just public func
-        return view('mtcms.settings.groups.perms')->withGroup($group)->withControllers($ControllerFiles)->withCurrentperms($currentPerms);
+        return view('cms.settings.groups.perms')->withGroup($group)->withControllers($ControllerFiles)->withCurrentperms($currentPerms);
     }
 
     public function postPerms($id,Request $request){
@@ -84,7 +84,7 @@ class GroupController extends Controller {
 	 */
 	public function create()
 	{
-		return view("mtcms.settings.groups.create");
+		return view("cms.settings.groups.create");
 	}
 
 	/**
@@ -96,11 +96,10 @@ class GroupController extends Controller {
 	{
         $this->validate($request,[
             'name' => "required|min:2",
-            'value' => "required|min:2",
         ]);
         $request->offsetSet('status',1);
 
-        if(Groups::create($request->only(['name','value','status']))){
+        if(Groups::create($request->only(['name','status']))){
             return redirect('settings/groups')->with('custom_success', trans('app.group').trans('app.successfully_saved'));
         }else{
             return redirect('settings/groups/create')->withErrors(['name' => trans('app.an_error_occured')])->withInput($request->input());
@@ -117,7 +116,7 @@ class GroupController extends Controller {
 	public function edit($id)
 	{
         $group = Groups::where('id','=',$id)->live()->firstOrFail();
-        return view("mtcms.settings.groups.edit")->withGroup($group);
+        return view("cms.settings.groups.edit")->withGroup($group);
 	}
 
 	/**
@@ -130,11 +129,9 @@ class GroupController extends Controller {
 	{
         $this->validate($request,[
             'name' => "required|min:2",
-            'value' => "required|min:2",
         ]);
         $group = Groups::where('id','=',$id)->live()->firstOrFail();
         $group->name    = $request->input('name');
-        $group->value   = $request->input('value');
         if($group->save()) {
             return redirect('settings/groups/' . $group->id . '/edit')->with('custom_success', trans('app.group').trans('app.successfully_saved'));
         }else

@@ -45,7 +45,7 @@ return [
     'email_or_password_incorrect' => "E-Posta yada parola hatalı!",
     'edit' => "Düzenle",
     'delete' => "Sil",
-    'successfully_saved' => "  başarıyla",
+    'successfully_saved' => "  başarıyla kaydedildi.",
     'successfully_deleted' => "  başarıyla silindi",
     'an_error_occured' => "Hata oluştu!",
     'edit_perms' => "İzinleri Düzenle",

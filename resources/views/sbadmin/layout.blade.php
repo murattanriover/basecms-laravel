@@ -109,7 +109,7 @@
 <script type="text/javascript" src="{{asset('sbadmin/assets/js/plugins/data-tables/jquery.dataTables.js')}}"></script>
 <script type="text/javascript" src="{{asset('sbadmin/assets/js/plugins/data-tables/DT_bootstrap.js')}}"></script>
 <script src="{{asset('sbadmin/assets/js/sb-admin-2.js')}}"></script>
-<script src="{{asset('sbadmin/assets/js/mtcms.js')}}"></script>
+<script src="{{asset('sbadmin/assets/js/cms.js')}}"></script>
 
 @section('footer')
 @show

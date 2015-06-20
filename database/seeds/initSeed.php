@@ -4,11 +4,9 @@ use Illuminate\Database\Seeder;
 class initSeed extends Seeder{
     public function run(){
 
-        \App\Model\Groups::create(['name'=>"yonetici",'value'=>"Yönetici",'status'=>1]);
-        \App\Model\Groups::create(['name'=>"editor",'value'=>"Editör",'status'=>1]);
-
+        \App\Model\Groups::create(['name'=>"Yönetici",'status'=>1]);
+        \App\Model\Groups::create(['name'=>"Editor",'status'=>1]);
         \App\Model\GroupPerms::create(['group_id'=>1,'controller'=>null,'action'=>null]);
-
 
 
         $user = new \App\User();

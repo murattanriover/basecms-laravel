@@ -25,7 +25,7 @@
     <div class="portlet">
         <div class="portlet-title">
             <div class="caption">
-                <i class="fa fa-users"></i> {{$group->value}} {{trans('app.perms')}}
+                <i class="fa fa-users"></i> {{$group->name}} {{trans('app.perms')}}
             </div>
         </div>
         <div class="portlet-body">
