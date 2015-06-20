@@ -25,9 +25,9 @@ class Perms {
 
                 if($controller!="auth\\authcontroller")
                     if (!PermsLib::isPermControl($controller,$method))
-                        return response()->view('errors.custom',['content'=>"Bu sayfaya yetkiniz bulunmuyor!"]);
+                        return response()->view('errors.custom',['content'=>trans('app.access_denied')]);
             }
-        }else return response()->view('errors.custom',['content'=>"Bu sayfaya yetkiniz bulunmuyor!"]);
+        }else return response()->view('errors.custom',['content'=>trans('app.access_denied')]);
 
 		return $next($request);
 	}

@@ -56,5 +56,6 @@ return [
     'user' => "Kullanıı",
     'successful' => "İşlem başarılı",
     'are_you_sure_want_to_delete' => 'Silmek istediğinize emin misiniz?',
-    'error' => "Hata"
+    'error' => "Hata",
+    'access_denied' => "Bu sayfaya erişim yetkiniz bulunmuyor!"
 ];

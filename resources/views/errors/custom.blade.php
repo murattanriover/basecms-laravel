@@ -18,7 +18,7 @@
         <div class="title">{{{$content or ""}}}</div>
         <div class="title2">{{{$content2 or ""}}}</div>
 
-        <div class="spy">{{trans('app.desc')}}</div>
+        <div class="spy">{{trans('app.app_desc')}}</div>
     </div>
 </div>
 </body>

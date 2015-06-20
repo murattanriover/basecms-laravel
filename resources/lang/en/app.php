@@ -56,5 +56,6 @@ return [
     'user' => "User",
     'successful' => "successful",
     'are_you_sure_want_to_delete' => 'Are you sure you want to delete?',
-    'error' => "Error"
+    'error' => "Error",
+    'access_denied' => "Access Denied!"
 ];

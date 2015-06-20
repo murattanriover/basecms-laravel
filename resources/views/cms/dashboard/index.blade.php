@@ -1,7 +1,7 @@
 @extends('sbadmin.layout')
 
 @section('title')
-{{trans('app.name')}}
+{{trans('app.app_name')}}
 @endsection
 
 

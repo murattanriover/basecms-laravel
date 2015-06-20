@@ -1,7 +1,7 @@
 @extends('sbadmin.login_layout')
 
 @section('title')
-    {{trans('app.name')}} - {{trans('app.userlogin')}}
+    {{trans('app.app_name')}} - {{trans('app.userlogin')}}
 @endsection
 
 @section('content')
