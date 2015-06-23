@@ -37,6 +37,9 @@
 * bllim/datatables
 * illuminate/html
 
+### Demo ###
+[Demo Link](http://basecms.murattanriover.com.tr)
+
 ### Tricks ###
 
 To test application the database is seeding with users :
